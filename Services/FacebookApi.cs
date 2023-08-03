@@ -10,13 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace GuidanceFacebookAPI
+namespace GuidanceFacebookAPI.Services
 {
     internal class FacebookApi
     {
         public string PageAccessToken;
-        public string UserAccessToken;
-
 
         public async Task PostMessage(string userId, string message, DateTime uploadDate)
         {
@@ -35,11 +33,12 @@ namespace GuidanceFacebookAPI
             }
             catch (FacebookOAuthException ex)
             {
-
+                Console.WriteLine("Logging error");
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
 
         }
